@@ -12,6 +12,9 @@ This repository contains a machine learning pipeline built with DVC and MLflow, 
 
 > ![alt text](image-1.png)
 
+> ![Screenshot 2025-06-02 121236](https://github.com/user-attachments/assets/6a24515c-89b8-424b-a93f-ad6edb0506ab)
+
+
 ## Prerequisites
 
 - Docker installed ([Get Docker](https://docs.docker.com/get-docker/))
