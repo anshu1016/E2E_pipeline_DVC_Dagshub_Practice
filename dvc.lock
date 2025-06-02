@@ -1,0 +1,65 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+    - path: data/raw/data.csv
+      hash: md5
+      md5: 1508e994bef6faaf08ef2e48feb88f68
+      size: 23629
+      isexec: true
+    - path: src/preprocess.py
+      hash: md5
+      md5: 959f0543f23c1edd12a4ef69e6c213f2
+      size: 492
+      isexec: true
+    params:
+      params.yaml:
+        preprocess.input: data/raw/data.csv
+        preprocess.output: data/processed/data.csv
+    outs:
+    - path: data/processed/data.csv
+      hash: md5
+      md5: 168642870fd999d9f410db7bb5490238
+      size: 23052
+      isexec: true
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/processed/data.csv
+      hash: md5
+      md5: 168642870fd999d9f410db7bb5490238
+      size: 23052
+      isexec: true
+    - path: src/train.py
+      hash: md5
+      md5: 3b39b8d4ebfa45bc95cf10afa56bbeb3
+      size: 3603
+      isexec: true
+    params:
+      params.yaml:
+        train.data: data/processed/data.csv
+    outs:
+    - path: models/model.pkl
+      hash: md5
+      md5: 79fb1530852db00f292adc86184eaebe
+      size: 419290
+      isexec: true
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - path: data/raw/data.csv
+      hash: md5
+      md5: 1508e994bef6faaf08ef2e48feb88f68
+      size: 23629
+      isexec: true
+    - path: models/model.pkl
+      hash: md5
+      md5: 79fb1530852db00f292adc86184eaebe
+      size: 419290
+      isexec: true
+    - path: src/evaluate.py
+      hash: md5
+      md5: 3d5f19559a07360f115e1306e6c2ab3a
+      size: 1002
+      isexec: true

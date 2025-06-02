@@ -1,0 +1,4 @@
+[core]
+    remote = origin
+['remote "origin"']
+    url = https://dagshub.com/anshu1016/dvc-mlflow-integration_practice_1june

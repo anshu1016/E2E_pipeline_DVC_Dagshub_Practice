@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  dvc-pipeline:
+    image: arunshukla9/pipeline_practice:latest
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: dvc repro --force
+    ports:
+      - "5000:8000"

@@ -97,5 +97,5 @@ def train(data_path,model_path):
 
 
 if __name__ == '__main__':
-    train(params['input'],params['model'])
+    train(params['data'],params['model'])
 
